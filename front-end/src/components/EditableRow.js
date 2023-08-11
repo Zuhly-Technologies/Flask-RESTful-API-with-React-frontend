@@ -1,14 +1,14 @@
 import React from "react";
 
 const EditableRow = ({
-  contact,
+  product,
   editFormData,
   handleEditFormChange,
   handleCancelClick,
 }) => {
   return (
     <tr>
-      <td>{contact.id}</td>
+      <td>{product.id}</td>
       <td>
         <input
           type="text"
