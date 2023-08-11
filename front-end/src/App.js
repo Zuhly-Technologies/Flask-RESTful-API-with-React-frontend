@@ -4,7 +4,7 @@ import ReadOnlyRow from "./components/ReadOnlyRow";
 import EditableRow from "./components/EditableRow";
 
 const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [addFormData, setAddFormData] = useState({
     id: "",
     name: "",
@@ -32,7 +32,7 @@ const App = () => {
     // Fetch data from your API endpoint
     fetch("http://127.0.0.1:5000/product")
       .then((response) => response.json())
-      .then((data) => setContacts(data))
+      .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
@@ -82,7 +82,7 @@ const App = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        setContacts([...contacts, responseData]);
+        setProducts([...products, responseData]);
         setShowAddForm(false);
       })
       .catch((error) => console.error("Error adding data:", error));
@@ -101,7 +101,7 @@ const App = () => {
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
 
-    const editedContact = {
+    const editedProduct = {
       name: editFormData.name,
       created_at: editFormData.created_at,
       status: editFormData.status,
@@ -116,26 +116,26 @@ const App = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(editedContact),
+      body: JSON.stringify(editedProduct),
     })
       .then((response) => response.json())
       .then((responseData) => {
-        // Update the contacts state with the edited data
-        const updatedContacts = contacts.map((data) =>
+        // Update the products state with the edited data
+        const updatedProducts = products.map((data) =>
           data.id === editDataId ? responseData : data
         );
-        setContacts(updatedContacts);
+        setProducts(updatedProducts);
         setEditDataId(null);
       })
       .catch((error) => console.error("Error editing data:", error));
 
-    const newContacts = [...contacts];
+    const newProducts = [...products];
 
-    const index = contacts.findIndex((contact) => contact.id === editDataId);
+    const index = products.findIndex((product) => product.id === editDataId);
 
-    newContacts[index] = editedContact;
+    newProducts[index] = editedProduct;
 
-    setContacts(newContacts);
+    setProducts(newProducts);
     setEditDataId(null);
   };
 
@@ -166,9 +166,9 @@ const App = () => {
       method: "DELETE",
     })
       .then(() => {
-        // Remove the deleted data from the contacts state
-        const updatedContacts = contacts.filter((data) => data.id !== dataId);
-        setContacts(updatedContacts);
+        // Remove the deleted data from the products state
+        const updatedProducts = products.filter((data) => data.id !== dataId);
+        setProducts(updatedProducts);
       })
       .catch((error) => console.error("Error deleting data:", error));
   };
@@ -248,18 +248,18 @@ const App = () => {
             </tr>
           </thead>
           <tbody>
-            {contacts.map((data) => (
+            {products.map((data) => (
               <Fragment>
                 {editDataId === data.id ? (
                   <EditableRow
-                    contact={data}
+                    product={data}
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
                   />
                 ) : (
                   <ReadOnlyRow
-                    contact={data}
+                    product={data}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
                   />
