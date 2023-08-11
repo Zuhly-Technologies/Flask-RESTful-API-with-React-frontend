@@ -34,4 +34,17 @@ The tests will validate the functionality of the API endpoints.
 # Frontend
 ![table](https://github.com/omrfrq/Flask-RESTful-API-with-React-frontend/assets/87365154/0111f1d0-c1f7-4769-9f5b-3bd0366c4576)
 
-<br>The React frontend is designed to provide a user-friendly interface for managing products stored in the Flask API's database. It includes features to add, edit, and delete product entries. All the necassary changes have been made to the code to connet it to the "http://localhost:5000"
+<br>The React frontend is designed to provide a user-friendly interface for managing products stored in the Flask API's database. It includes features to add, edit, and delete product entries.
+
+## Prerequisites
+- node.js version 14 (you can use nvm to install node)
+- create-react-app and npm (or yarn)
+- In your package.json file add: "proxy":"http://localhost:5000"
+
+## Setup
+After creating your react app and making the necassary changes to the code:<br>
+
+1. Ensure the Flask API is running.
+2. Inside the frontend directory to start the development server: npm start (or yarn start)
+3. The frontend will be accessible at http://localhost:3000.
+
