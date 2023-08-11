@@ -1,7 +1,7 @@
 # Flask-RESTful-API-with-React-frontend
 A RESTful API using flask, restful, sqlalchemy, marshmallow with SQLLite database. The API provides endpoints to manage products. You can perform CRUD operations (Create, Read, Update, Delete) using these endpoints.
 
-# Installation
+## Installation
 1. Clone the repository: git clone "repository-url"<br>
 2. Create a virtual environment: python3 -m venv venv<br>
 3. Enable the virtual environment: source venv/bin/activate<br>
@@ -10,18 +10,18 @@ A RESTful API using flask, restful, sqlalchemy, marshmallow with SQLLite databas
 6. Start the Flask development server: python main.py<br>
 7. The API will be accessible at http://127.0.0.1:5000.<br>
 
-# Endpoints
-# GET
+## Endpoints
+### GET
 Retrieve a row by its ID: http://127.0.0.1:5000/product/int:id<br>
 Retrieve all rows: http://127.0.0.1:5000/product<br>
-# POST
+### POST
 Add a row: http://127.0.0.1:5000/product<br>
-# PATCH
+### PATCH
 Edit a row using its ID: http://127.0.0.1:5000/product/int:id<br>
-# DELETE
+### DELETE
 Delete a row using its ID: http://127.0.0.1:5000/product/int:id<br>
 
-# Testing
+## Testing
 The API comes with a testing suite using the pytest framework. The tests are located in the Pytest folder.<br> 
 
 Run the tests as follows:
